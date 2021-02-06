@@ -1,0 +1,58 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1610051610,
+        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1612648935,
+        "narHash": "sha256-g4KSjJ8yavAgsspB68IbPaTDs7jgLgxMP3a/1iAo7/E=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "69fb3614c23bc9a71ff9717925368e2ba2da7b29",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "openage": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1612132387,
+        "narHash": "sha256-viw8LHeLJxB+dUKo6Wn5mZ2unPUyPeJuu929JbaRGRc=",
+        "owner": "SFTtech",
+        "repo": "openage",
+        "rev": "e9ea9cb93ef6376ebd5c19aeee7a15169174ff4f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SFTtech",
+        "repo": "openage",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "openage": "openage"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
