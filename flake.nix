@@ -4,17 +4,22 @@
   inputs = {
     openage = { url = github:SFTtech/openage; flake = false; };
     flake-utils.url = github:numtide/flake-utils;
+    nyan = { url = github:vi-tality/nyan-flake; flake = true; };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }@inputs: flake-utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs, flake-utils, nyan, ... }@inputs: flake-utils.lib.eachDefaultSystem (system:
     with nixpkgs.legacyPackages."${system}";
     let
       openage = nixpkgs.legacyPackages."${system}".stdenv.mkDerivation {
+
         pname = "openage";
         version = "master";
         src = inputs.openage;
 
+        cmakeFlags = ["-Dnyan_DIR=${inputs.nyan.outputs.defaultPackage.x86_64-linux}/lib/cmake/nyan/"];
+
         buildInputs = [
+          inputs.nyan
           cmake
           eigen
           epoxy
@@ -38,7 +43,6 @@
             qtgraphicaleffects
             qtimageformats
             qtlocation
-            qtmacextras
             qtmultimedia
             qtnetworkauth
             qtquickcontrols
@@ -46,7 +50,6 @@
             qtscript
             qtscxml
             qtsensors
-            qtserialbus
             qtserialport
             qtspeech
             qtsvg
