@@ -11,6 +11,10 @@
     with nixpkgs.legacyPackages."${system}";
     let
       openage = nixpkgs.legacyPackages."${system}".stdenv.mkDerivation {
+        postFixup = ''
+          mv $out/bin/openage $out/lib/python3.8/site-packages/run.py
+          ln -s $out/lib/python3.8/site-packages/run.py $out/bin/run.py
+        '';
 
         pname = "openage";
         version = "master";
